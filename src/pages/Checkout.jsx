@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import { DataContext } from "../components/Datacontext";
-import { IoIosAdd } from "react-icons/io";
 import { FaMinus } from "react-icons/fa";
 
 const Checkout = () => {
