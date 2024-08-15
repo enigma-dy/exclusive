@@ -1,0 +1,14 @@
+/* @import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css"; */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "ResearcherFont";
+  src: url("./assets/fonts/ResearcherRegular.ttf") format("truetype"),
+    url("./assets/fonts/ResearcherThin.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
