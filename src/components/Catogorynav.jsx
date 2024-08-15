@@ -1,18 +1,8 @@
 import React, { useContext } from "react";
 import { GrPersonalComputer, GrGamepad } from "react-icons/gr";
 import { BsSmartwatch } from "react-icons/bs";
-import {
-  IoPhonePortraitOutline,
-  IoShieldCheckmarkSharp,
-  IoSearchOutline,
-} from "react-icons/io5";
-import {
-  FaCameraRetro,
-  FaLinkedin,
-  FaFacebookF,
-  FaInstagram,
-  FaShippingFast,
-} from "react-icons/fa";
+import { IoPhonePortraitOutline } from "react-icons/io5";
+import { FaCameraRetro } from "react-icons/fa";
 import { FaHeadphones } from "react-icons/fa6";
 
 const Catogorynav = () => {

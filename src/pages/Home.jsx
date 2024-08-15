@@ -2,8 +2,6 @@ import React, { useContext, useState } from "react";
 import { DataContext } from "../components/Datacontext";
 import Hero from "../components/Hero";
 
-import { RiCustomerService2Line, RiTwitterXLine } from "react-icons/ri";
-import { ImFacebook2 } from "react-icons/im";
 import Flashsales from "../components/Flashsales";
 import Catogorynav from "../components/Catogorynav";
 import BestSselling from "../components/Bestselling";
