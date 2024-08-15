@@ -6,8 +6,9 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      // This ensures that Rollup can resolve the 'react-icons/fa' module
-      external: ["react-icons/fa"],
+      external: [
+        "react-icons/*", // This will handle all imports from react-icons
+      ],
     },
   },
 });
