@@ -4,7 +4,6 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { DataProvider } from "./components/Datacontext";
 import { AuthProvider } from "./components/AuthContext";
-import PrivateRoute from "./components/PrivateRoute";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
@@ -15,11 +14,18 @@ import FlashsalesPage from "./pages/FlashsalesPage";
 import Productpage from "./pages/Productpage";
 import Checkout from "./pages/Checkout";
 import LoginPage from "./pages/LoginPage";
+import { BestSellingProductsPage } from "./pages/BestSellingPage";
+import { bestsellingproductsdata } from "./components/loaddata";
+import SearchPage from "./pages/SearchPage";
+import { allData } from "./components/loaddata";
+import ErrorBoundary from "./components/ErrorBoundary";
+import AllProduct from "./pages/AllProduct";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Navbar />,
+    errorElement: <ErrorBoundary />,
     children: [
       {
         index: true,
@@ -38,12 +44,12 @@ const router = createBrowserRouter([
         element: <Signup />,
       },
       {
-        path: "cateegory",
+        path: "category",
         element: <Category />,
       },
       {
         path: "flashsales",
-        element: <PrivateRoute element={FlashsalesPage} />,
+        element: <FlashsalesPage />,
       },
       {
         path: "product/:name/:id",
@@ -54,8 +60,18 @@ const router = createBrowserRouter([
         element: <Checkout />,
       },
       {
-        path: "login",
-        element: "<LogingPage/>",
+        path: "bestselling",
+        element: <BestSellingProductsPage />,
+        loader: bestsellingproductsdata,
+      },
+      {
+        path: "/search",
+        element: <SearchPage />,
+        loader: allData,
+      },
+      {
+        path: "/allproduct",
+        element: <AllProduct />,
       },
     ],
   },

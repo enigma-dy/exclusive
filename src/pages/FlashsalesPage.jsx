@@ -3,7 +3,7 @@ import { DataContext } from "../components/Datacontext";
 import { useNavigate } from "react-router-dom";
 
 const FlashsalesPage = () => {
-  const { product, loading, error } = useContext(DataContext);
+  const { product, loading, error, addToCart } = useContext(DataContext);
   const navigate = useNavigate();
 
   function handleView(name, id) {
@@ -11,7 +11,7 @@ const FlashsalesPage = () => {
   }
 
   function handleBuy(name, id) {
-    navigate(`/checkout/${name}/${id}`); // Make sure this route is defined
+    navigate(`/checkout/${name}/${id}`);
   }
 
   if (loading) {
@@ -56,10 +56,16 @@ const FlashsalesPage = () => {
                 ${item.price}
               </p>
               <button
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-200"
-                onClick={() => handleBuy(item.name, item.id)} // Pass item.name and item.id here
+                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-200 mb-2"
+                onClick={() => handleBuy(item.name, item.id)}
               >
                 Buy Now
+              </button>
+              <button
+                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors duration-200"
+                onClick={() => addToCart(item)}
+              >
+                Add to Cart
               </button>
             </div>
           </li>

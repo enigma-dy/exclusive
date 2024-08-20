@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { DataContext } from "../components/Datacontext";
 import { FaMinus } from "react-icons/fa";
+import { IoIosAdd } from "react-icons/io";
 
 const Checkout = () => {
   const { cart } = useContext(DataContext);

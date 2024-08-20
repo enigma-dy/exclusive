@@ -6,7 +6,7 @@ import Flashsales from "../components/Flashsales";
 import Catogorynav from "../components/Catogorynav";
 import BestSselling from "../components/Bestselling";
 import Banner from "../components/Banner";
-
+import Section from "../components/Section";
 export default function Home() {
   const { loading, error } = useContext(DataContext);
 
@@ -27,12 +27,18 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-gray-900 text-white font-sans">
+    <div className="font-sans w-4/5 my-10 mx-auto">
       <Hero />
       <div className="container mx-auto px-4">
         <Flashsales />
         <Catogorynav />
         <BestSselling />
+
+        <Section title="" />
+        <Section title="" />
+        <Section title="" />
+        <Section title="" />
+        <Section title="" />
         <Banner />
       </div>
     </div>
