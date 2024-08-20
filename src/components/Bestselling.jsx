@@ -30,11 +30,11 @@ const Bestselling = () => {
                   key={item.id}
                   className="w-52 h-80 flex flex-col items-center  rounded-lg p-3 hover:shadow-lg transition-shadow duration-300"
                 >
-                  <div className="w-full h-52 text-black object-scale-down">
+                  <div className="w-full h-52 text-black border-black p-2 rounded-md">
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover rounded-md "
+                      className="w-full h-full object-scale-down rounded-md  "
                     />
                   </div>
                   <p className="text-lg mt-2 text-black text-center truncate w-full">

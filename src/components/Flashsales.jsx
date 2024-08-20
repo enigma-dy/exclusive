@@ -77,79 +77,56 @@ const Flashsales = () => {
   };
 
   return (
-    <div className="mt-10 py-6 px-4 relative md:px-8 bg-white">
-      <div className="text-2xl md:text-3xl font-bold space-y-4 py-6 relative">
-        <div className="flex flex-col md:flex-row gap-6 md:gap-10">
-          <div className="flex justify-center md:justify-start">
-            <p className="text-lg md:text-2xl">Flash Sales</p>
-          </div>
-          <div>
-            <ul className="flex flex-wrap justify-center md:justify-start gap-4 md:gap-6">
+    <div className="mt-6 py-4 px-2 bg-white md:px-4">
+      <div className="text-xl md:text-2xl font-bold py-4">
+        <div className="flex flex-col items-center md:items-start md:flex-row gap-4">
+          <p className="text-lg md:text-2xl">Flash Sales</p>
+          <ul className="flex flex-wrap justify-center md:justify-start gap-2 md:gap-4">
+            {Object.entries(timeRemaining).map(([unit, value]) => (
               <li
+                key={unit}
                 className={`flex flex-col items-center text-pink-500 text-xl md:text-2xl font-bold ${
-                  bouncing.days ? "animate-bounce" : ""
+                  bouncing[unit] ? "animate-bounce" : ""
                 }`}
               >
-                <p className="text-blue-400 text-xs md:text-sm">Days</p>
-                <span>{timeRemaining.days}</span>
+                <p className="text-blue-400 text-xs md:text-sm">
+                  {unit.charAt(0).toUpperCase() + unit.slice(1)}
+                </p>
+                <span>{value}</span>
               </li>
-              <li
-                className={`flex flex-col items-center text-pink-500 text-xl md:text-2xl font-bold ${
-                  bouncing.hours ? "animate-bounce" : ""
-                }`}
-              >
-                <p className="text-blue-400 text-xs md:text-sm">Hours</p>
-                <span>{timeRemaining.hours}</span>
-              </li>
-              <li
-                className={`flex flex-col items-center text-pink-500 text-xl md:text-2xl font-bold ${
-                  bouncing.minutes ? "animate-bounce" : ""
-                }`}
-              >
-                <p className="text-blue-400 text-xs md:text-sm">Minutes</p>
-                <span>{timeRemaining.minutes}</span>
-              </li>
-              <li
-                className={`flex flex-col items-center text-pink-500 text-xl md:text-2xl font-bold ${
-                  bouncing.seconds ? "animate-bounce" : ""
-                }`}
-              >
-                <p className="text-blue-400 text-xs md:text-sm">Seconds</p>
-                <span>{timeRemaining.seconds}</span>
-              </li>
-            </ul>
-          </div>
+            ))}
+          </ul>
         </div>
       </div>
-      <div className="container mx-auto px-4">
-        <ul className="flex  justify-center gap-6">
+      <div className="container mx-auto px-2 md:px-4">
+        <ul className="flex flex-wrap justify-center gap-4">
           {product.slice(0, 4).map((item) => (
             <li
               key={item.id}
-              className="mt-2 bg-none relative w-full md:w-56 h-auto md:h-80 flex flex-col items-center rounded-lg p-3 group hover:shadow-2xl transition-shadow duration-300"
+              className="bg-none relative w-full sm:w-48 md:w-56 h-auto flex flex-col items-center rounded-lg p-2 sm:p-3 group hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="w-32 h-32 md:w-48 md:h-48 flex items-center justify-center">
+              <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 flex items-center justify-center">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-scale-down rounded-md"
+                  className="w-full h-full object-cover rounded-md"
                 />
               </div>
-              <p className="text-sm md:text-base mt-2 text-white text-center truncate w-full">
+              <p className="text-sm sm:text-base mt-2 text-center truncate w-full">
                 {item.title}
               </p>
-              <p className="text-lg md:text-xl text-pink-500 mt-1">
+              <p className="text-lg sm:text-xl text-pink-500 mt-1">
                 ${item.price.toFixed(2)}
               </p>
               <div className="absolute bottom-4 flex flex-col gap-2 items-center w-full px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <button
-                  className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-3 rounded-lg hover:opacity-80 transition-opacity duration-300"
+                  className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-2 rounded-lg hover:opacity-80 transition-opacity duration-300"
                   onClick={() => navigateToItem(item.title, item.id)}
                 >
                   View Details
                 </button>
                 <button
-                  className="bg-green-500 text-white px-6 py-3 rounded-lg hover:opacity-80 transition-opacity duration-300"
+                  className="bg-green-500 text-white px-4 py-2 rounded-lg hover:opacity-80 transition-opacity duration-300"
                   onClick={() => handleAddToCart(item.id)}
                 >
                   Add to Cart
@@ -158,9 +135,9 @@ const Flashsales = () => {
             </li>
           ))}
         </ul>
-        <div className="flex justify-center py-8">
+        <div className="flex justify-center py-4 md:py-8">
           <button
-            className="w-full absolute bottom-0 bg-gradient-to-r from-purple-500 to-blue-500 text-white text-lg md:text-xl px-6 md:px-8 py-2 md:py-3 hover:bg-gradient-to-l transition duration-300"
+            className="bg-gradient-to-r from-purple-500 to-blue-500 text-white text-lg md:text-xl px-4 md:px-6 py-2 md:py-3 hover:bg-gradient-to-l transition duration-300"
             onClick={navigateToAllProducts}
           >
             View All

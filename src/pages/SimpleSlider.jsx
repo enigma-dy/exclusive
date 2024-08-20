@@ -12,9 +12,10 @@ const SimpleSlider = () => {
   return (
     <AutoplaySlider
       play={true}
-      cancelOnInteraction={false} // should stop playing on user interaction
+      cancelOnInteraction={false}
       interval={2000}
-      className="w-full h-72 mx-auto"
+      className="w-full h-72 md:h-96 mx-auto"
+      mobileTouch={true}
     >
       <div data-src={A} className="w-full h-full object-cover" />
       <div data-src={B} className="w-full h-full object-cover" />

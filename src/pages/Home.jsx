@@ -27,18 +27,17 @@ export default function Home() {
   }
 
   return (
-    <div className="font-sans w-4/5 my-10 mx-auto">
+    <div className="sm:w-full lg:w-4/5 font-sans  my-10 mx-auto">
       <Hero />
       <div className="container mx-auto px-4">
         <Flashsales />
         <Catogorynav />
         <BestSselling />
-
-        <Section title="" />
-        <Section title="" />
-        <Section title="" />
-        <Section title="" />
-        <Section title="" />
+        <Section title="Sponsored Product" />
+        <Section title="Top Selling Items" />
+        <Section title="Appliance Upgrade" />
+        <Section title="Spend and Save" />
+        <Section title="Super Deals" />
         <Banner />
       </div>
     </div>

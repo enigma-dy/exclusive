@@ -1,77 +1,135 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { DataProvider } from "./components/Datacontext";
 import { AuthProvider } from "./components/AuthContext";
-import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import Contact from "./pages/Contact";
-import About from "./pages/About";
-import Signup from "./pages/Signup";
-import Category from "./pages/Category";
-import FlashsalesPage from "./pages/FlashsalesPage";
-import Productpage from "./pages/Productpage";
-import Checkout from "./pages/Checkout";
-import LoginPage from "./pages/LoginPage";
-import { BestSellingProductsPage } from "./pages/BestSellingPage";
-import { bestsellingproductsdata } from "./components/loaddata";
-import SearchPage from "./pages/SearchPage";
-import { allData } from "./components/loaddata";
 import ErrorBoundary from "./components/ErrorBoundary";
-import AllProduct from "./pages/AllProduct";
+import Spinner from "./components/Spinner";
+
+const Navbar = lazy(() => import("./components/Navbar"));
+const Home = lazy(() => import("./pages/Home"));
+const Contact = lazy(() => import("./pages/Contact"));
+const About = lazy(() => import("./pages/About"));
+const Signup = lazy(() => import("./pages/Signup"));
+const Category = lazy(() => import("./pages/Category"));
+const FlashsalesPage = lazy(() => import("./pages/FlashsalesPage"));
+const Productpage = lazy(() => import("./pages/Productpage"));
+const Checkout = lazy(() => import("./pages/Checkout"));
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const BestSellingProductsPage = lazy(() => import("./pages/BestSellingPage"));
+const SearchPage = lazy(() => import("./pages/SearchPage"));
+const AllProduct = lazy(() => import("./pages/AllProduct"));
+
+import { bestsellingproductsdata, allData } from "./components/loaddata";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Navbar />,
+    element: (
+      <Suspense fallback={<Spinner />}>
+        <Navbar />
+      </Suspense>
+    ),
     errorElement: <ErrorBoundary />,
     children: [
       {
         index: true,
-        element: <Home />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Home />
+          </Suspense>
+        ),
       },
       {
         path: "contact",
-        element: <Contact />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Contact />
+          </Suspense>
+        ),
       },
       {
         path: "about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "signup",
-        element: <Signup />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Signup />
+          </Suspense>
+        ),
       },
       {
         path: "category",
-        element: <Category />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Category />
+          </Suspense>
+        ),
       },
       {
         path: "flashsales",
-        element: <FlashsalesPage />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <FlashsalesPage />
+          </Suspense>
+        ),
       },
       {
         path: "product/:name/:id",
-        element: <Productpage />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Productpage />
+          </Suspense>
+        ),
       },
       {
         path: "checkout",
-        element: <Checkout />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Checkout />
+          </Suspense>
+        ),
       },
       {
         path: "bestselling",
-        element: <BestSellingProductsPage />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <BestSellingProductsPage />
+          </Suspense>
+        ),
         loader: bestsellingproductsdata,
       },
       {
         path: "/search",
-        element: <SearchPage />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <SearchPage />
+          </Suspense>
+        ),
         loader: allData,
       },
       {
         path: "/allproduct",
-        element: <AllProduct />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <AllProduct />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/login",
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <LoginPage />
+          </Suspense>
+        ),
       },
     ],
   },
