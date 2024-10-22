@@ -3,7 +3,6 @@ import React from "react";
 const Banner = () => {
   return (
     <div>
-      {" "}
       <div className="w-9/12 bg-gradient-to-r from-gray-900 via-gray-800 to-black  text-white mx-auto my-10 p-10 space-y-10 rounded-md">
         <div className="w-80 space-y-5">
           <p className="text-green-500 font-bold">Categories</p>

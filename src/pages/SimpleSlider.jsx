@@ -1,27 +1,48 @@
 import React from "react";
-import AwesomeSlider from "react-awesome-slider";
-import withAutoplay from "react-awesome-slider/dist/autoplay";
-import "react-awesome-slider/dist/styles.css";
-import A from "../assets/images/A.jpg";
-import B from "../assets/images/B.jpg";
-import C from "../assets/images/C.jpg";
+import { Link } from "react-router-dom";
+import SimpleSlider from "../pages/SimpleSlider";
+import { motion } from "framer-motion"; // For animations
 
-const AutoplaySlider = withAutoplay(AwesomeSlider);
+const Hero = () => {
+  const nav = [
+    "Woman's Fashion",
+    "Men's Fashion",
+    "Electronics",
+    "Home & Lifestyle",
+    "Medicine",
+    "Sports & Outdoor",
+    "Baby's & Toys",
+    "Groceries",
+    "Health & Beauty",
+  ];
 
-const SimpleSlider = () => {
   return (
-    <AutoplaySlider
-      play={true}
-      cancelOnInteraction={false}
-      interval={2000}
-      className="w-full h-72 md:h-96 mx-auto"
-      mobileTouch={true}
-    >
-      <div data-src={A} className="w-full h-full object-cover" />
-      <div data-src={B} className="w-full h-full object-cover" />
-      <div data-src={C} className="w-full h-full object-cover" />
-    </AutoplaySlider>
+    <div className="flex flex-col md:flex-row justify-center items-center space-y-8 py-4 md:py-10 bg-white">
+      <div className="md:hidden w-full flex justify-center"></div>
+      <div className="hidden md:block md:border-r-2 md:pr-8 border-gray-200">
+        <ul className="space-y-3 md:space-y-1">
+          {nav.map((n, id) => (
+            <li
+              key={id}
+              className="hover:text-orange-400 transition-colors duration-300">
+              <Link
+                to={`/${n
+                  .toLowerCase()
+                  .replace(/ /g, "")
+                  .replace(/[^a-z0-9-]/g, "")}`}
+                className="text-lg font-semibold text-gray-700">
+                {n}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    
+          <SimpleSlider />
+        
+      </div>
+   
   );
 };
 
-export default SimpleSlider;
+export default Hero;
